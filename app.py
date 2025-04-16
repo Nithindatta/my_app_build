@@ -1,1 +1,1 @@
-Print ("My First Application")
+Print("My First Application")
