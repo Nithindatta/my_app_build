@@ -1,1 +1,1 @@
-Hello ("My First Application")
+Print ("My First Application")
