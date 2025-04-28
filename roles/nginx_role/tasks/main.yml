@@ -1,0 +1,17 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for nginx_role
+#
+- name: Install Nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Copy a cutom index.html file
+  ansible.builtin.copy:
+    src: /ansible/index.html
+    dest: /tmp
+    owner: root
+    group: root
+    mode: '0644'  

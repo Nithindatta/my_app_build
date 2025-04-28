@@ -1,0 +1,8 @@
+---
+- name: Install Apache HTTPD and configure files
+  hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+    - /ansible/roles/ans_role   # Ensure that the role name and path are correct
+
