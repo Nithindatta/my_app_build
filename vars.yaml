@@ -1,0 +1,7 @@
+aws_region: us-east-2
+ec2_key_name: Nithin_key_pair
+ec2_instance_type: t2.micro
+ec2_image: ami-0d1b5a8c13042c939  # Ubuntu LinuxVM
+ec2_security_group: sg-0c89c3627b168541b 
+ec2_subnet_id: subnet-03fa0f796a06ffa9f 
+ec2_tag_name: my-ansible-ec2

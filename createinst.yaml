@@ -1,0 +1,29 @@
+---
+- name: Launch EC2 instance in AWS
+  hosts: local
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - name: Launch a new EC2 instance
+      amazon.aws.ec2_instance:
+        name: "{{ ec2_tag_name }}"
+        key_name: "{{ ec2_key_name }}"
+        instance_type: "{{ ec2_instance_type }}"
+        image_id: "{{ ec2_image }}"
+        wait: true
+        count: 1
+        region: "{{ aws_region }}"
+        vpc_subnet_id: "{{ ec2_subnet_id }}"
+        security_group: "{{ ec2_security_group }}"
+        tags:
+          Environment: Ansible
+      register: ec2_result
+
+    - name: Display the public IP of the new instance
+      debug:
+        msg: "EC2 Instance Public IP: {{ ec2_result.instances[0].public_ip_address }}"
+
